@@ -2,23 +2,44 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+@font-face {
+    font-family: 'Franklin';
+    src: url('./fonts/FRADMCN.TTF');
+}
+
+@font-face {
+    font-family: 'Franklin Book';
+    src: url('./fonts/FRABK.TTF');
+}
+
 :root {
     --main-color: #b26241;
     --main-color-soft: #bd7f69;
     --main-color-light: #ce967f;
     --nav-selected: #f2d4cd;
-}
-
-li a {
-    text-decoration: none;
-    color: unset;
-    height: 100%;
-    width: 100%;
-    padding: 15px 0;
+    --font-dark: #505050;
+    --font-light: #818386;
+    --font-lighter: #9e9f9e;
+    --main-font: 'Franklin';
+    --light-font: 'Franklin Book';
+    --background: #faf6f5;
+    --dark-grey: #383838;
 }
 
 .selected {
     color: var(--nav-selected);
+}
+
+.primary-color {
+    color: var(--main-color);
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.menu-button {
+    display: none;
 }
 
 body {
@@ -44,23 +65,12 @@ aside {
     align-items: center;
 }
 
-nav {
-    width: 100%;
-}
-
-main {
-    background-color: #faf6f5;
-    height: 100vh;
-    width: 84%;
-    margin-left: 16%;
-}
-
-ul {
+aside ul {
     list-style: none;
     padding: 0;
 }
 
-li {
+aside li {
     cursor: pointer;
     text-align: center;
     font-weight: 800;
@@ -68,17 +78,180 @@ li {
     display: flex;
 }
 
-li:hover {
+aside li:hover {
     background-color: antiquewhite;
     color: var(--main-color);
 }
 
-.menu-button {
-    display: none;
+aside li a {
+    text-decoration: none;
+    color: unset;
+    height: 100%;
+    width: 100%;
+    padding: 15px 0;
+}
+
+nav {
+    width: 100%;
+}
+
+main {
+    background-color: var(--background);
+    height: 100vh;
+    width: 84%;
+    margin-left: 16%;
+    display: flex;
+    align-items: center;
+}
+
+main a {
+    color: unset;
+    text-decoration: none;
+    font-family: unset;
+}
+
+main a:hover {
+    color: var(--main-color-light);
+}
+
+main h1 {
+    color: var(--dark-grey);
 }
 
 #menu-toggle {
     display: none;
+}
+
+#about {
+    width: 100%;
+    padding: 70px;   
+}
+
+#about header {
+    margin-bottom: 60px;
+}
+
+#about h1, h2, h1 span, h2 span {
+    font-family: var(--main-font);
+    margin: 0;
+}
+
+#about h1 {
+    font-size: 70px;    
+}
+
+#about h2 {
+    color: var(--font-light);
+}
+
+#about p {
+    color: var(--font-lighter);
+    font-size: 20px;
+    font-family: var(--light-font);
+}
+
+#social {
+    margin-top: 40px;
+}
+
+#social ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 23px;
+}
+
+#social ul li {
+    background-color: var(--font-dark);
+    color: var(--background);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#social ul li:not(:first-child) {
+    margin-left: 20px;
+}
+
+#social li a {
+    color: unset;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%;
+    height: 100%;
+}
+
+.tooltip {
+    position: relative;
+}
+
+.tooltip-text {
+    position: absolute;
+    background-color: #1f1e1e;
+    border-radius: 6px;
+    top: -35px;
+    width: 80px;
+    box-sizing: border-box;
+    padding: 3px;
+    text-align: center;
+    left: calc(50% - 40px);
+    visibility: hidden;
+    font-size: 15px;
+}
+
+.tooltip .tooltip-text::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 7px;
+    border-style: solid;
+    border-color: #1f1e1e transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+
+#skills, #objectives {
+    padding: 70px;
+}
+
+#skills h1, #objectives h1 {
+    font-family: var(--main-font);
+    font-size: 4em;
+    color: var(--dark-grey);
+}
+
+main ol {
+    list-style-type: lower-alpha;
+    list-style-position: inside;
+    color: var(--dark-grey);
+    padding: 0;
+}
+
+main li::marker {
+    color: var(--main-color);
+    font-weight: bold;
+}
+
+main ol li {
+    font-family: var(--light-font);
+    font-size: 30px;
+    padding: 10px 0;
+}
+
+main ol li:hover {
+    color: var(--main-color);
+    cursor: default;
 }
 
 @media screen and (max-width: 1220px) {  
@@ -96,18 +269,18 @@ li:hover {
         align-items: center;
     }   
 
-    ul {
+    aside ul {
         height: 100%;
     }
 
-    li {
+    aside li {
         float: left;
         height: 100%;
         display: flex;
         align-items: center;
     }
 
-    li a {
+    aside li a {
         padding: 0;
         padding: 0 30px;
         display: flex;
@@ -124,7 +297,32 @@ li:hover {
         margin-left: 0;
         margin-top: 80px;
         width: 100%;
+        height: calc(100vh - 80px);
+        text-align: center;
+        justify-content: center;
     }    
+
+    #social ul {
+        justify-content: center;
+    }
+
+    #about {
+        margin-top: -190px;
+    }
+
+    #skills {
+        max-width: 500px;
+    }
+
+    #skills, #skills ol {
+        padding-top: 0;
+        text-align: left;
+    }
+
+    .align-start {
+        align-items: start;
+        padding-top: 50px;
+    }   
 }
 
 @media screen and (max-width: 700px){ 
@@ -142,7 +340,7 @@ li:hover {
         height: 200px;
     }
 
-    ul {
+    aside ul {
         margin: 0;
         /* display: flex; */
         align-items: end;
@@ -153,13 +351,13 @@ li:hover {
         transition: height 400ms;
     }
 
-    li {
+    aside li {
         height: calc(100% / 3);
         display: flex;
         width: 100%;
     }
 
-    li a {
+    aside li a {
         padding: 0;
         width: 100%;
         justify-content: center;

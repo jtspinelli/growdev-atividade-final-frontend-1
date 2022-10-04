@@ -38,6 +38,10 @@
     text-transform: uppercase;
 }
 
+.bold {
+    font-weight: bold;
+}
+
 .menu-button {
     display: none;
 }
@@ -102,6 +106,7 @@ main {
     margin-left: 16%;
     display: flex;
     align-items: center;
+    box-sizing: border-box;
 }
 
 main a {
@@ -144,10 +149,11 @@ main h1 {
     color: var(--font-light);
 }
 
-#about p {
-    color: var(--font-lighter);
-    font-size: 20px;
+#about p, #objectives p {
+    color: var(--font-dark);
+    font-size: 18px;
     font-family: var(--light-font);
+    line-height: 1.2em;
 }
 
 #social {
@@ -245,13 +251,28 @@ main li::marker {
 
 main ol li {
     font-family: var(--light-font);
-    font-size: 30px;
+    font-size: 20px;
     padding: 10px 0;
 }
 
 main ol li:hover {
     color: var(--main-color);
     cursor: default;
+}
+
+#objectives {
+    max-width: 750px;
+    color: var(--font-dark);
+}
+
+#objectives p {
+    font-size: 16px;
+    text-align: justify;
+}
+
+#objectives li {
+    padding: 10px 0;
+    font-family: var(--light-font);
 }
 
 @media screen and (max-width: 1220px) {  
@@ -310,9 +331,9 @@ main ol li:hover {
         margin-top: -190px;
     }
 
-    #skills {
-        max-width: 500px;
-    }
+    #skills, #objectives {
+        width: 600px;
+    }    
 
     #skills, #skills ol {
         padding-top: 0;
@@ -323,6 +344,18 @@ main ol li:hover {
         align-items: start;
         padding-top: 50px;
     }   
+
+    #objectives {
+        padding-top: 0;        
+    }
+
+    #skills h1, #objectives h1 {
+        text-align: left;
+    }
+
+    #objectives li {
+        text-align: left;
+    }
 }
 
 @media screen and (max-width: 700px){ 
@@ -342,7 +375,6 @@ main ol li:hover {
 
     aside ul {
         margin: 0;
-        /* display: flex; */
         align-items: end;
         width: 100%;
         height: 0;
@@ -362,11 +394,6 @@ main ol li:hover {
         width: 100%;
         justify-content: center;
     }  
-
-    /* .selected {
-        background-color: antiquewhite;
-        color: var(--main-color);
-    } */
 
     .menu-button-container {
         cursor: pointer;
@@ -414,4 +441,14 @@ main ol li:hover {
         height: 100%;
         transition: 400ms;
     }    
+
+    #skills, #objectives {
+        padding: 40px;
+        padding-top: 0;
+    }
+
+    #skills h1, #objectives h1 {
+        max-width: 400px;
+        font-size: 3.5em;
+    }
 }
